@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="proof-theoreticways to derive facts   bottom up: starting from the known facts and deriving all possible new facts   technique: fixpoint  top-down: starting from a fact to be proven and attempts to de">
@@ -47,8 +47,9 @@
 <meta property="og:image" content="http://example.com/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/2020-04-10-23-02-14.png">
 <meta property="og:image" content="http://example.com/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/2020-04-10-23-03-08.png">
 <meta property="article:published_time" content="2020-11-20T11:57:47.000Z">
-<meta property="article:modified_time" content="2020-11-20T12:08:02.888Z">
+<meta property="article:modified_time" content="2020-11-20T12:27:50.650Z">
 <meta property="article:author" content="Hyhao">
+<meta property="article:tag" content="datalog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/2020-04-10-08-50-30.png">
 
@@ -212,7 +213,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-11-20 19:57:47 / 修改时间：20:08:02" itemprop="dateCreated datePublished" datetime="2020-11-20T19:57:47+08:00">2020-11-20</time>
+              <time title="创建时间：2020-11-20 19:57:47 / 修改时间：20:27:50" itemprop="dateCreated datePublished" datetime="2020-11-20T19:57:47+08:00">2020-11-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A3%95%E7%9B%90/" itemprop="url" rel="index"><span itemprop="name">磕盐</span></a>
+                </span>
             </span>
 
           
@@ -235,6 +245,8 @@
 <p>  technique: <strong>SLD</strong></p>
 </li>
 </ul>
+<a id="more"></a>
+
 <h2 id="syntax-of-datalog"><a href="#syntax-of-datalog" class="headerlink" title="syntax of datalog"></a>syntax of datalog</h2><ol>
 <li><p>datalog程序是由有限条规则(rule)组成,出现在rule head中的变量在rule body中应全部包含 </p>
 </li>
@@ -376,9 +388,9 @@
 <li>initialize: use the query to give initialize values to input_$R^{\gamma}$</li>
 <li>four kinds of steps in the execution(details in 321~322):</li>
 </ol>
-<p><img src="/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/2020-04-10-23-00-20.png"></p>
 </li>
 </ol>
+<p><img src="/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/2020-04-10-23-00-20.png"></p>
 <p> <strong>example</strong></p>
 <p><img src="/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/2020-04-10-23-02-14.png"></p>
 <p> <strong>analysis</strong></p>
@@ -391,6 +403,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/datalog/" rel="tag"># datalog</a>
+          </div>
 
         
 
@@ -480,6 +495,16 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
 
@@ -564,6 +589,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
