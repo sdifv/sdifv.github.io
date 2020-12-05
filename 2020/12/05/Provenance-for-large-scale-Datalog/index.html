@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/2020/12/05/Provenance-for-large-scale-Datalog/image-20201205094405606.png">
 <meta property="og:image" content="http://example.com/2020/12/05/Provenance-for-large-scale-Datalog/image-20201205094559866.png">
 <meta property="article:published_time" content="2020-12-05T03:41:30.000Z">
-<meta property="article:modified_time" content="2020-12-05T03:58:13.973Z">
+<meta property="article:modified_time" content="2020-12-05T04:01:16.183Z">
 <meta property="article:author" content="Hyhao">
 <meta property="article:tag" content="datalog">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-05 11:41:30 / 修改时间：11:58:13" itemprop="dateCreated datePublished" datetime="2020-12-05T11:41:30+08:00">2020-12-05</time>
+              <time title="创建时间：2020-12-05 11:41:30 / 修改时间：12:01:16" itemprop="dateCreated datePublished" datetime="2020-12-05T11:41:30+08:00">2020-12-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,7 +224,9 @@
         <h2 id="Provenance-for-large-scale-Datalog"><a href="#Provenance-for-large-scale-Datalog" class="headerlink" title="Provenance for large scale Datalog"></a>Provenance for large scale Datalog</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.05045">https://arxiv.org/abs/1907.05045</a></p>
 </blockquote>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>this paper has presented a novel provenance evaluation strategy for Datalog specifications. The provenance evaluation strategy extends tuples in the IDB with proof annotations.<br><a id="more"></a></p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>this paper has presented a novel provenance evaluation strategy for Datalog specifications. The provenance evaluation strategy extends tuples in the IDB with proof annotations.</p>
+<a id="more"></a>
+
 <ul>
 <li><p>two scenarios:  </p>
 <ul>
@@ -278,33 +280,20 @@
 <p>we say that the rule firing of ρk generates $t$, and thus the identifier $\rho (t) = k$ is stored as the rule number annotation for $t$.</p>
 </li>
 <li><p><strong>height</strong> annotations</p>
-<p>The consequence operator $T_P$ , generates a new provenance instance:</p>
-<script type="math/tex; mode=display">
-T_p((I,h)) = (\Gamma_P(I),h') \\</script><p>where $h’$ is defined as follows. For any tuple $ t\in\Gamma_P(I)$, let<br>$G_t = {(t_1, …,t_n)|t:-t_1, …, t_n\ is\ a\ valid\ rule\ instantiation\ with\ each\ t_i \in \Gamma_P(I)}$<br>be the set of all configurations of rule bodies generating $t$.  Note this may be empty in the case of EDB tuples. Then,</p>
-<script type="math/tex; mode=display">
-h'(t) =
-\begin{cases}
-h(t), & if G_t = \emptyset \\[5ex]
-\min_{g \in G_t} \{\max_{t_i \in g} \{h(t_i)\}+1\}, & \text{otherwise}
-\end{cases}</script><p> If $T_P (I, h) = (\Gamma_P (I), h′ )$ results in $h′ (t) &lt; h (t)$, then we say that the height annotation of $t$ has been updated</p>
+<p>The consequence operator $T_P$ , generates a new provenance instance:<br>$$<br>T_p((I,h)) = (\Gamma_P(I),h’) \<br>$$<br>where $h’$ is defined as follows. For any tuple $ t\in\Gamma_P(I)$, let<br>$G_t = {(t_1, …,t_n)|t:-t_1, …, t_n\ is\ a\ valid\ rule\ instantiation\ with\ each\ t_i \in \Gamma_P(I)}$<br>be the set of all configurations of rule bodies generating $t$.  Note this may be empty in the case of EDB tuples. Then,<br>$$<br>h’(t) =<br>\begin{cases}<br>h(t), &amp; if G_t = \emptyset \[5ex]<br>\min_{g \in G_t} {\max_{t_i \in g} {h(t_i)}+1}, &amp; \text{otherwise}<br>\end{cases}<br>$$<br> If $T_P (I, h) = (\Gamma_P (I), h′ )$ results in $h′ (t) &lt; h (t)$, then we say that the height annotation of $t$ has been updated</p>
 </li>
 </ul>
 </li>
 <li><p>Proof Tree Construction by Provenance Queries</p>
-<p>Given a tuple t, and a rule $\rho (t) : R(X) :- R<em>1(X_1),. . . , Rn(X_n), \psi(X_1, . . . , X_n)$generating $t$, we want to find tuples $t1, . . . , tn ∈ I$ such that $t :- t_1, . . . , t_n$ is a valid instantiation of $\rho</em>(t)$, with proof annotations of each $t_i$ satisfying the former constraints.</p>
-<script type="math/tex; mode=display">
-? :- R_1(X_1), . . . , R_n(X_n), ψ(X_1, . . . , X_n), \\
-matches(t, X_1, . . . , X_n), h(R_1(X_1)) < h(t), . . . , h(R_n(X_n)) < h(t)</script><ul>
+<p>Given a tuple t, and a rule $\rho (t) : R(X) :- R_1(X_1),. . . , Rn(X_n), \psi(X_1, . . . , X_n)$generating $t$, we want to find tuples $t1, . . . , tn ∈ I$ such that $t :- t_1, . . . , t_n$ is a valid instantiation of $\rho_(t)$, with proof annotations of each $t_i$ satisfying the former constraints.<br>$$<br>? :- R_1(X_1), . . . , R_n(X_n), ψ(X_1, . . . , X_n), \<br>matches(t, X_1, . . . , X_n), h(R_1(X_1)) &lt; h(t), . . . , h(R_n(X_n)) &lt; h(t)<br>$$</p>
+<ul>
 <li><p>example</p>
 <ol>
 <li><p>query: $alias(a, b)$</p>
 </li>
 <li><p>$r4:\ alias(Var1, Var2) :- vpt(Var1, Obj), vpt(Var2, Obj) \quad h(alias(a,b))=4$</p>
 </li>
-<li><p>goal search: </p>
-<script type="math/tex; mode=display">
-?:-vpt(Var1, Obj), vpt(Var2, Obj), Var1 \ne Var2, Var1=a, Var2=b,\\
-h(vpt(Var1, Obj)) < 4, h(vpt(Var, Obj))<4</script><p> goal search can be seen as a special case of Datalog, denoted <strong>0-IDB</strong> Datalog</p>
+<li><p>goal search:<br>$$<br>?:-vpt(Var1, Obj), vpt(Var2, Obj), Var1 \ne Var2, Var1=a, Var2=b,\<br>h(vpt(Var1, Obj)) &lt; 4, h(vpt(Var, Obj))&lt;4<br>$$<br> goal search can be seen as a special case of Datalog, denoted <strong>0-IDB</strong> Datalog</p>
 </li>
 </ol>
 </li>
@@ -334,7 +323,10 @@ h(vpt(Var1, Obj)) < 4, h(vpt(Var, Obj))<4</script><p> goal search can be seen as
     <a href="/2020/11/29/python-%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE/" rel="prev" title="python:使用正则匹配结构化文本数据">
       <i class="fa fa-chevron-left"></i> python:使用正则匹配结构化文本数据
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/05/Social-and-Information-Networks/" rel="next" title="Social and Information Networks">
+      Social and Information Networks <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -409,18 +401,18 @@ h(vpt(Var1, Obj)) < 4, h(vpt(Var, Obj))<4</script><p> goal search can be seen as
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
