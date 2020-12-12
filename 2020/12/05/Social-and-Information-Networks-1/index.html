@@ -20,19 +20,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="Social and Information Networks Ⅰ 社会网络信息分析课程知识点总结(Ⅰ) graph theory &#x2F; network representation &#x2F; network model">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2020/11/19/hello-world/index.html">
+<meta property="og:title" content="Social and Information Networks 1">
+<meta property="og:url" content="http://example.com/2020/12/05/Social-and-Information-Networks-1/index.html">
 <meta property="og:site_name" content="WorldOfHao">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="Social and Information Networks Ⅰ 社会网络信息分析课程知识点总结(Ⅰ) graph theory &#x2F; network representation &#x2F; network model">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-19T04:45:58.880Z">
-<meta property="article:modified_time" content="2020-11-29T07:36:19.914Z">
+<meta property="og:image" content="http://example.com/2020/12/05/Social-and-Information-Networks-1/image-20201204145155418.png">
+<meta property="og:image" content="http://example.com/2020/12/05/Social-and-Information-Networks-1/image-20201204151013779.png">
+<meta property="og:image" content="http://example.com/2020/12/05/Social-and-Information-Networks-1/image-20201204161314555.png">
+<meta property="article:published_time" content="2020-12-05T04:03:57.000Z">
+<meta property="article:modified_time" content="2020-12-12T03:52:49.180Z">
 <meta property="article:author" content="Hyhao">
+<meta property="article:tag" content="社会网络信息分析">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/12/05/Social-and-Information-Networks-1/image-20201204145155418.png">
 
-<link rel="canonical" href="http://example.com/2020/11/19/hello-world/">
+<link rel="canonical" href="http://example.com/2020/12/05/Social-and-Information-Networks-1/">
 
 
 <script id="page-configurations">
@@ -45,7 +50,7 @@
   };
 </script>
 
-  <title>Hello World | WorldOfHao</title>
+  <title>Social and Information Networks 1 | WorldOfHao</title>
   
 
 
@@ -168,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/19/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/05/Social-and-Information-Networks-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -181,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Social and Information Networks 1
         </h1>
 
         <div class="post-meta">
@@ -191,15 +196,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-11-19 12:45:58" itemprop="dateCreated datePublished" datetime="2020-11-19T12:45:58+08:00">2020-11-19</time>
+              <time title="创建时间：2020-12-05 12:03:57" itemprop="dateCreated datePublished" datetime="2020-12-05T12:03:57+08:00">2020-12-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 15:36:19" itemprop="dateModified" datetime="2020-11-29T15:36:19+08:00">2020-11-29</time>
+                <time title="修改时间：2020-12-12 11:52:49" itemprop="dateModified" datetime="2020-12-12T11:52:49+08:00">2020-12-12</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">课程</span></a>
+                </span>
+            </span>
 
           
 
@@ -212,21 +226,175 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        <h2 id="Social-and-Information-Networks-Ⅰ"><a href="#Social-and-Information-Networks-Ⅰ" class="headerlink" title="Social and Information Networks Ⅰ"></a>Social and Information Networks Ⅰ</h2><blockquote>
+<p>社会网络信息分析课程知识点总结(Ⅰ)</p>
+<p><strong><em>graph theory / network representation / network model</em></strong></p>
+</blockquote>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><ul>
+<li>分析网络的方式<ul>
+<li>节点分类：预测给定节点的类型</li>
+<li>链路预测：预测两个节点是否存在链接</li>
+<li>社区检测：识别密集连接的节点集群</li>
+<li>社交影响/传播：预测共同的路径</li>
+<li>网络/节点相似性分析</li>
+</ul>
+</li>
+<li>网络的组成<ul>
+<li><strong>N</strong>: nodes/vertices</li>
+<li><strong>E</strong>: links/edges</li>
+<li><strong>G(N,E)</strong>: network/graph</li>
+</ul>
+</li>
+<li>network 与 graph 的区别<ul>
+<li>network: 具体的系统</li>
+<li>graph: 数学表示</li>
+</ul>
+</li>
+<li>有向图与无向图</li>
+<li>网络的连通性()<ul>
+<li><strong>undirected</strong>:<ul>
+<li>connected component</li>
+<li>bridge edge</li>
+<li>articulation point</li>
+</ul>
+</li>
+<li><strong>directed</strong><ul>
+<li>strongly connected directed graph：双向可达的有向图</li>
+<li>weakly connected directed graph：连通的无向图</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络表示"><a href="#网络表示" class="headerlink" title="网络表示"></a>网络表示</h3><ul>
+<li><p><strong>Directed Graph</strong></p>
+<ul>
+<li><p>$In(v) = {w|w\ can\ reach\ v} \ \  Out(v)={w|v\ can\ reach\ w}$</p>
+</li>
+<li><p>two types</p>
+<ul>
+<li>强连通图：Strongly connected graphsS</li>
+<li>有向无环图：DAG – Directed Acyclic Graph</li>
+</ul>
+</li>
+<li><p>强连通分量<strong>Strongly connected component (SCC)</strong> </p>
+<ul>
+<li><p>定义：任意两点可以互相可达的最大节点集合</p>
+</li>
+<li><p>性质：</p>
+<ol>
+<li>SCC将图G进行分区，因此每个节点都应该属于且仅属于一个SCC(反证法)</li>
+<li>如果图G由若干个SCC组成，那么图G是一个DAG</li>
+</ol>
+</li>
+<li><p>将DAG划分为SCCs的方法：</p>
+<p>选取一个节点A，计算<strong>In(A)</strong>,**Out(A)**，包含节点A的SCC计算公式为：$SCC(A)=Out(A)\cap In(A)$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>network representations</strong></p>
+<p><img src="/2020/12/05/Social-and-Information-Networks-1/image-20201204145155418.png"></p>
+<ul>
+<li><p>edge list ： [(1,2),(1,4),…]</p>
+</li>
+<li><p>adjacency list ：{1:[2,4],4:[1,2,3],…}</p>
+</li>
+<li><p>Adjacency Matrix：$A_{ij}=1\ or\ 0$</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>二部图<strong>Bipartite Graph</strong></p>
+<ul>
+<li>定义：节点被划分为独立的两部分，两部分节点之间存在连接关系</li>
+</ul>
+</li>
+<li><p><strong>Network Properties</strong></p>
+<ul>
+<li><p>节点的度(degree) / 平均度 / 出(入)度</p>
+</li>
+<li><p>节点度(概率)分布：$P(k) = N_k / N$， $N_k=$ nodes with degree k</p>
+</li>
+<li><p>节点聚类系数(0,1)：$C_i = \frac {e_i} {k_i(k_i-1)/2}$，$k_i$ is the degree of node i，$e_i$ is the number of edges between the neighbours of node i</p>
+</li>
+<li><p>平均聚类系数：$C=\frac 1 N \sum_i^NC_i$</p>
+</li>
+<li><p>距离</p>
+<ul>
+<li><p>路径序列：$P_n = {i_0, i_1, …, i_n}$</p>
+</li>
+<li><p>路径长度：$H_{uv}^{(h)} = [A^h]_{uv}$</p>
+<p><img src="/2020/12/05/Social-and-Information-Networks-1/image-20201204151013779.png" alt="image-20201204151013779"></p>
+</li>
+</ul>
+</li>
+<li><p>直径：图中任意两个节点的最大距离</p>
+</li>
+<li><p>平均距离：图中任意两点之间的距离之和/$A_n^2$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><ul>
+<li><p>简单图</p>
+<ul>
+<li><p><strong>Random Graph Model</strong></p>
+<p>n个节点的无向图， edge(u,v)存在的概率为p，不唯一</p>
+<ul>
+<li>形成具有E条边的概率：</li>
+</ul>
+<p>$$<br>P(E) = C_{E_{max}}^E p^E (1-p)^{E_{max}-E} \<br>E_{max} = n(n-1)/2<br>$$</p>
+<p>$P(E)$服从二项分布</p>
+<ul>
+<li>节点的平均度：$E[X_v]=\sum_{u=1}^{n-1}E[X_{vu}] = (n-1)p$</li>
+<li>节点度分布：$P(k) = C_{n-1}^k p^k (1-p)^{n-1-k}$，服从二项分布</li>
+<li>节点聚类系数：$C=p=k/n$</li>
+<li>虽然$G_{np}$是不现实的，但它是非常有用的！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>社交网络</p>
+<ul>
+<li><p>三元闭包<strong>Triadic Closure</strong></p>
+<ul>
+<li><p>span / bridges / local bridge</p>
+<ul>
+<li>桥(Bridge)：如果一个图中，已知A和B相连，若去掉连接A和B的边导致A和B分属不同的连通分量，则该边称为桥。桥为A,B间的唯一路径。</li>
+<li>捷径(Local bridge)：若边A-B的端点A和B没有共同朋友，则称边A-B为捷径，删除A-B边将把A-B距离增加至2以上(不含2)。</li>
+<li>跨度(Span)：边两端点在没有该边情况下的实际距离。</li>
+</ul>
+</li>
+<li><p>强三元闭包</p>
+<p>如果A-B，A-C均为强联系，则B和C之间应该存在联系，否则违反强三元闭包性质。若节点A满足强三元闭包性质，并有至少两个强联系边与之相连，则与其相连的任何捷径均为弱联系。</p>
+</li>
+<li><p>邻里重叠度</p>
+<p>NOL(A,B) = 与A和B均相邻的节点数/与A或B相邻的节点数</p>
+</li>
+</ul>
+</li>
+<li><p>图分割<strong>Graph Partitioning</strong></p>
+<ul>
+<li>介数(betweenness)：一条边承载的信息流总量，即所有节点对之间最短路径上的流量之和。</li>
+<li>分割原则：逐步删除最高介数边</li>
+</ul>
+</li>
+<li><p>介数计算的一种算法</p>
+<p><img src="/2020/12/05/Social-and-Information-Networks-1/image-20201204161314555.png" alt="image-20201204161314555"></p>
+</li>
+<li><p>符号网络</p>
+<p><strong>Signed networks</strong>: A complete graph is <em>balanced</em> if every connected triple of nodes has: All 3 edges labeled + <strong>or</strong> Exactly 1 edge labeled +</p>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -235,16 +403,22 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%88%86%E6%9E%90/" rel="tag"># 社会网络信息分析</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/11/20/Datalog%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/" rel="next" title="Datalog语言入门">
-      Datalog语言入门 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/05/Provenance-for-large-scale-Datalog/" rel="prev" title="Provenance for large scale Datalog">
+      <i class="fa fa-chevron-left"></i> Provenance for large scale Datalog
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/12/Social-and-Information-Networks-2/" rel="next" title="Social and Information Networks 2">
+      Social and Information Networks 2 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -304,7 +478,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Social-and-Information-Networks-%E2%85%A0"><span class="nav-number">1.</span> <span class="nav-text">Social and Information Networks Ⅰ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">图论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.2.</span> <span class="nav-text">网络表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">网络模型</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,6 +625,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

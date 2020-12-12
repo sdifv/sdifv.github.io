@@ -20,24 +20,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Social and Information Networks 社会网络信息分析课程知识点总结(Ⅰ)graph theory &#x2F; network representation &#x2F; network model">
+  <meta name="description" content="Social and Information Networks Ⅱ 社会网络信息分析课程知识点总结(Ⅱ) six degrees of separation &#x2F; the power law distribution &#x2F; link analysis algorithms">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Social and Information Networks">
-<meta property="og:url" content="http://example.com/2020/12/05/Social-and-Information-Networks/index.html">
+<meta property="og:title" content="Social and Information Networks 2">
+<meta property="og:url" content="http://example.com/2020/12/12/Social-and-Information-Networks-2/index.html">
 <meta property="og:site_name" content="WorldOfHao">
-<meta property="og:description" content="Social and Information Networks 社会网络信息分析课程知识点总结(Ⅰ)graph theory &#x2F; network representation &#x2F; network model">
+<meta property="og:description" content="Social and Information Networks Ⅱ 社会网络信息分析课程知识点总结(Ⅱ) six degrees of separation &#x2F; the power law distribution &#x2F; link analysis algorithms">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2020/12/05/Social-and-Information-Networks/image-20201204145155418.png">
-<meta property="og:image" content="http://example.com/2020/12/05/Social-and-Information-Networks/image-20201204151013779.png">
-<meta property="og:image" content="http://example.com/2020/12/05/Social-and-Information-Networks/image-20201204161314555.png">
-<meta property="article:published_time" content="2020-12-05T04:03:57.000Z">
-<meta property="article:modified_time" content="2020-12-05T04:18:41.121Z">
+<meta property="og:image" content="http://example.com/2020/12/12/Social-and-Information-Networks-2/image-20201211204127574.png">
+<meta property="og:image" content="http://example.com/2020/12/12/Social-and-Information-Networks-2/image-20201211210341993.png">
+<meta property="og:image" content="http://example.com/2020/12/12/Social-and-Information-Networks-2/image-20201211235017784.png">
+<meta property="article:published_time" content="2020-12-12T03:34:56.000Z">
+<meta property="article:modified_time" content="2020-12-12T04:10:08.847Z">
 <meta property="article:author" content="Hyhao">
 <meta property="article:tag" content="社会网络信息分析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/12/05/Social-and-Information-Networks/image-20201204145155418.png">
+<meta name="twitter:image" content="http://example.com/2020/12/12/Social-and-Information-Networks-2/image-20201211204127574.png">
 
-<link rel="canonical" href="http://example.com/2020/12/05/Social-and-Information-Networks/">
+<link rel="canonical" href="http://example.com/2020/12/12/Social-and-Information-Networks-2/">
 
 
 <script id="page-configurations">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>Social and Information Networks | WorldOfHao</title>
+  <title>Social and Information Networks 2 | WorldOfHao</title>
   
 
 
@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/05/Social-and-Information-Networks/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/12/Social-and-Information-Networks-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -186,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Social and Information Networks
+          Social and Information Networks 2
         </h1>
 
         <div class="post-meta">
@@ -197,7 +197,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-05 12:03:57 / 修改时间：12:18:41" itemprop="dateCreated datePublished" datetime="2020-12-05T12:03:57+08:00">2020-12-05</time>
+              <time title="创建时间：2020-12-12 11:34:56 / 修改时间：12:10:08" itemprop="dateCreated datePublished" datetime="2020-12-12T11:34:56+08:00">2020-12-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,172 +220,145 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Social-and-Information-Networks"><a href="#Social-and-Information-Networks" class="headerlink" title="Social and Information Networks"></a>Social and Information Networks</h2><blockquote>
-<p>社会网络信息分析课程知识点总结(Ⅰ)<br><strong><em>graph theory / network representation / network model</em></strong></p>
-</blockquote>
+        <h2 id="Social-and-Information-Networks-Ⅱ"><a href="#Social-and-Information-Networks-Ⅱ" class="headerlink" title="Social and Information Networks Ⅱ"></a>Social and Information Networks Ⅱ</h2><blockquote>
+<p>社会网络信息分析课程知识点总结(Ⅱ)</p>
+<p><strong><em>six degrees of separation / the power law distribution / link analysis algorithms</em></strong></p>
 <a id="more"></a>
-
-<h3 id="1-图论"><a href="#1-图论" class="headerlink" title="1. 图论"></a>1. 图论</h3><ul>
-<li>分析网络的方式<ul>
-<li>节点分类：预测给定节点的类型</li>
-<li>链路预测：预测两个节点是否存在链接</li>
-<li>社区检测：识别密集连接的节点集群</li>
-<li>社交影响/传播：预测共同的路径</li>
-<li>网络/节点相似性分析</li>
-</ul>
+</blockquote>
+<h3 id="六度分隔-six-degrees-of-separation"><a href="#六度分隔-six-degrees-of-separation" class="headerlink" title="六度分隔 six degrees of separation"></a>六度分隔 six degrees of separation</h3><ul>
+<li><p>Milgram’s experiment寄信实验</p>
+<p>64人参与，传播过程有损耗（放弃参与），部分完成实验</p>
 </li>
-<li>网络的组成<ul>
-<li><strong>N</strong>: nodes/vertices</li>
-<li><strong>E</strong>: links/edges</li>
-<li><strong>G(N,E)</strong>: network/graph</li>
-</ul>
+<li><p>Measuring path lengths in real-world networks</p>
+<p>使用路径长度H来定量统计email(MSN)传播情况，基于大样本，绘制distance-number of paths关系图，得到平均路径长度为6.6</p>
 </li>
-<li>network 与 graph 的区别<ul>
-<li>network: 具体的系统</li>
-<li>graph: 数学表示</li>
-</ul>
+<li><p>基于理论网络模型，计算平均路径长度</p>
+<p>$G_{np}：h\in O(logn) \approx 8.8$</p>
+<p>但是简单随机图不够真实，不能反映实际情况</p>
 </li>
-<li>有向图与无向图</li>
-<li>网络的连通性()<ul>
-<li><strong>undirected</strong>:<ul>
-<li>connected component</li>
-<li>bridge edge</li>
-<li>articulation point</li>
-</ul>
-</li>
-<li><strong>directed</strong><ul>
-<li>strongly connected directed graph：双向可达的有向图</li>
-<li>weakly connected directed graph：连通的无向图</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-网络表示"><a href="#2-网络表示" class="headerlink" title="2. 网络表示"></a>2. 网络表示</h3><ul>
-<li><p><strong>Directed Graph</strong></p>
-<ul>
-<li><p>$In(v) = {w|w\ can\ reach\ v} \ \  Out(v)={w|v\ can\ reach\ w}$</p>
-</li>
-<li><p>two types</p>
-<ul>
-<li>强连通图：Strongly connected graphsS</li>
-<li>有向无环图：DAG – Directed Acyclic Graph</li>
-</ul>
-</li>
-<li><p>强连通分量<strong>Strongly connected component (SCC)</strong> </p>
-<ul>
-<li><p>定义：任意两点可以互相可达的最大节点集合</p>
-</li>
-<li><p>性质：</p>
+<li><p>Watts&amp;Strogatz model 小世界网络模型</p>
+<p>比较接近真实的社交网络：high clustering, low diameter，但不能反映真实的degree distribution</p>
+<p><strong>创建 Watts-Strogatz 图形包含以下两个基本步骤：</strong></p>
+<blockquote>
 <ol>
-<li>SCC将图G进行分区，因此每个节点都应该属于且仅属于一个SCC(反证法)</li>
-<li>如果图G由若干个SCC组成，那么图G是一个DAG</li>
+<li>创建一个环形网格，其中包含N个平均出入度为 2K 的节点。每个节点都与任一侧的 K 个最近邻点相连。</li>
+<li>对于图中的每条边，重新连接概率为 $\beta$ 的目标节点。重新连接的边不能是重复或自环的。</li>
 </ol>
+</blockquote>
+<p>执行第一步操作之后，图形将是一个完美的环形网格。因此当 $\beta$ 时，不会重新连接任何边，并且该模型会返回一个环形网格。而如果 $\beta = 1$，则所有边都将重新连接，并且环形网格会变成随机图形。</p>
 </li>
-<li><p>将DAG划分为SCCs的方法：</p>
-<p>选取一个节点A，计算<strong>In(A)</strong>,**Out(A)**，包含节点A的SCC计算公式为：$SCC(A)=Out(A)\cap In(A)$</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>network representations</strong></p>
-<p><img src="/2020/12/05/Social-and-Information-Networks/image-20201204145155418.png"></p>
+<li><p>Kleinberg’s Decentralized search 分散搜索</p>
 <ul>
-<li><p>edge list ： [(1,2),(1,4),…]</p>
-</li>
-<li><p>adjacency list ：{1:[2,4],4:[1,2,3],…}</p>
-</li>
-<li><p>Adjacency Matrix：$A_{ij}=1\ or\ 0$</p>
+<li>每个节点只有邻接朋友节点的位置信息和目标节点的位置信息</li>
+<li>在新增随机弱连接边的时候，会考虑新连接节点的距离，概率 $p=d(u,v)^{-q}$，当q值较小时，随即便倾向于较远，反之较近，Watts&amp;Strogatz模型对应q=0，当q=2时，分散搜索的效果最好。</li>
+<li>每次转发时，节点n都只会把信息传递给距离它地理位置最近的邻居t，</li>
+</ul>
+<p>这种搜索机制下，只在搜索最短路径搜索时间$T=O((logn)^{\beta})$的情况下才有效，如果是指数型的复杂度，则无效。</p>
+<p><img src="/2020/12/12/Social-and-Information-Networks-2/image-20201211204127574.png" alt="image-20201211204127574"></p>
 </li>
 </ul>
-</li>
-</ul>
+<h3 id="幂律分布-the-power-law-distribution"><a href="#幂律分布-the-power-law-distribution" class="headerlink" title="幂律分布 the power law distribution"></a>幂律分布 <em>the power law distribution</em></h3><p>幂律是流行度的一种主导规律</p>
 <ul>
-<li><p>二部图<strong>Bipartite Graph</strong></p>
+<li><p>流行度分布 <strong>popularity distributed</strong></p>
 <ul>
-<li>定义：节点被划分为独立的两部分，两部分节点之间存在连接关系</li>
+<li>正态分布——随机量的一种规律</li>
 </ul>
-</li>
-<li><p><strong>Network Properties</strong></p>
+<p><img src="/2020/12/12/Social-and-Information-Networks-2/image-20201211210341993.png" alt="image-20201211210341993"></p>
 <ul>
-<li><p>节点的度(degree) / 平均度 / 出(入)度</p>
+<li><p>中心极限定理：大量独立同分布的随机变量之和（均值）服从正态分布</p>
 </li>
-<li><p>节点度(概率)分布：$P(k) = N_k / N$， $N_k=$ nodes with degree k</p>
-</li>
-<li><p>节点聚类系数(0,1)：$C_i = \frac {e_i} {k_i(k_i-1)/2}$，$k_i$ is the degree of node i，$e_i$ is the number of edges between the neighbours of node i</p>
-</li>
-<li><p>平均聚类系数：$C=\frac 1 N \sum_i^NC_i$</p>
-</li>
-<li><p>距离</p>
-<ul>
-<li><p>路径序列：$P_n = {i_0, i_1, …, i_n}$</p>
-</li>
-<li><p>路径长度：$H_{uv}^{(h)} = [A^h]_{uv}$</p>
-<p><img src="/2020/12/05/Social-and-Information-Networks/image-20201204151013779.png" alt="image-20201204151013779"></p>
-</li>
-</ul>
-</li>
-<li><p>直径：图中任意两个节点的最大距离</p>
-</li>
-<li><p>平均距离：图中任意两点之间的距离之和/$A_n^2$</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-网络模型"><a href="#3-网络模型" class="headerlink" title="3. 网络模型"></a>3. 网络模型</h3><ul>
-<li><p>简单图</p>
-<ul>
-<li><p><strong>Random Graph Model</strong></p>
-<p>n个节点的无向图， edge(u,v)存在的概率为p，不唯一</p>
-<ul>
-<li>形成具有E条边的概率：</li>
-</ul>
-<p>$$<br>P(E) = C_{E_{max}}^E p^E (1-p)^{E_{max}-E} \<br>E_{max} = n(n-1)/2<br>$$</p>
-<p>$P(E)$服从二项分布</p>
-<ul>
-<li>节点的平均度：$E[X_v]=\sum_{u=1}^{n-1}E[X_{vu}] = (n-1)p$</li>
-<li>节点度分布：$P(k) = C_{n-1}^k p^k (1-p)^{n-1-k}$，服从二项分布</li>
-<li>节点聚类系数：$C=p=k/n$</li>
-<li>虽然$G_{np}$是不现实的，但它是非常有用的！</li>
-</ul>
+<li><p>“幂律”：一个随着x值的某个固定的幂次递减的函数，表示为:<br>$$<br>f(x)=ax^{-c}<br>$$<br>取对数后得到:<br>$$<br>log(f(x)) = logc - \alpha log x<br>$$<br>为查看$f(x)$是否幂律，一种做法就是取 $log(x)$和对应的$log(f(x))$，观察关系图是否是一个直线。</p>
 </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p>社交网络</p>
+<li><p>Scale-Free Networks 无标度网络</p>
+<p>满足 $f(ax) = a^{\lambda}f(x)$， 可以证明 Log()和Exp()都不满足</p>
 <ul>
-<li><p>三元闭包<strong>Triadic Closure</strong></p>
-<ul>
-<li><p>span / bridges / local bridge</p>
-<ul>
-<li>桥(Bridge)：如果一个图中，已知A和B相连，若去掉连接A和B的边导致A和B分属不同的连通分量，则该边称为桥。桥为A,B间的唯一路径。</li>
-<li>捷径(Local bridge)：若边A-B的端点A和B没有共同朋友，则称边A-B为捷径，删除A-B边将把A-B距离增加至2以上(不含2)。</li>
-<li>跨度(Span)：边两端点在没有该边情况下的实际距离。</li>
-</ul>
+<li><p>长尾分布 <strong>Heavy-Tailed Distributions</strong></p>
+<p><img src="/2020/12/12/Social-and-Information-Networks-2/image-20201211235017784.png" alt="image-20201211235017784"></p>
 </li>
-<li><p>强三元闭包</p>
-<p>如果A-B，A-C均为强联系，则B和C之间应该存在联系，否则违反强三元闭包性质。若节点A满足强三元闭包性质，并有至少两个强联系边与之相连，则与其相连的任何捷径均为弱联系。</p>
+<li><p>随机网络的度分布遵循二项分布， 而无标度网络的度分布是长尾分布</p>
 </li>
-<li><p>邻里重叠度</p>
-<p>NOL(A,B) = 与A和B均相邻的节点数/与A或B相邻的节点数</p>
+<li><p><strong>Network Resilience</strong> 网络复原能力</p>
+<p>一般网络故障分为两种： Random failure / Targeted attack，根据统计结果，真实网络对于random failure的修复能力较强，而简单随机图$G_{np}$对targeted attack的修复能力较强。</p>
 </li>
 </ul>
 </li>
-<li><p>图分割<strong>Graph Partitioning</strong></p>
+<li><p>幂律分布的成因</p>
+<p>“富者更富”模型  <strong>rich get richer</strong></p>
+<p><strong>模型构建算法：</strong></p>
+<blockquote>
+<p>节点按顺序 1，2，3，…，n加入</p>
+<p>当创建节点 j 时，以概率 p 或者 1-p 选择如下 1 或2 执行</p>
+<ol>
+<li>以概率 p，均匀随机地选择一个早先创建地节点 i，建立一个从 j 到 i 的链接</li>
+<li>以 1-p 的概率，均匀随机地选择一个早先创建的节点 i，建立一个从 j 到 i 所指向的节点 l 的链接</li>
+</ol>
+</blockquote>
+<p>此模型产生幂律，其中的指数 c 取决于概率 p，操作2的复制行为实际履行一种“富者更富”的原则。</p>
+<p>得到的(入度)幂律分布中， $\alpha = 1 + \frac 1 q = 1 + \frac 1 {1-p}$</p>
+</li>
+</ul>
+<h3 id="链接分析-link-analysis-algorithms"><a href="#链接分析-link-analysis-algorithms" class="headerlink" title="链接分析 link analysis algorithms"></a>链接分析 link analysis algorithms</h3><ul>
+<li><p>Hubs and Authorities(<strong>HITS</strong>)</p>
+<p>Hubs：指向很多网页</p>
+<p>Authorities：被很多网页指向</p>
+<p><strong>HITS算法</strong></p>
+<blockquote>
 <ul>
-<li>介数(betweenness)：一条边承载的信息流总量，即所有节点对之间最短路径上的流量之和。</li>
-<li>分割原则：逐步删除最高介数边</li>
+<li>输入：一个有向图</li>
+<li>初始化： 对于每一个节点 p, auth(p) = 1, hub(p) = 1</li>
+<li>利用中枢值更新权威值：对于每一个节点  p , 让auth(p)等于指向 p 的所有节点 q 的 hub(q)之和</li>
+<li>利用权威值更新中枢值：对于每一个节点p，让hub(p)等于p指向的所有节点q的 auth(q)之和</li>
+<li>重复上述两步若干（<em>k</em>）次</li>
+</ul>
+</blockquote>
+<p>数值随迭代次数递增，Auth和hub值的意义在于相对大小。在每一轮结束后做归一化：值／总和，归一化结果随迭代次数趋向于一个极限：相继两次迭代的值不变极限与初值无关，即存在“均衡”。</p>
+</li>
+</ul>
+<p>  在实际中算法实施的针对性：相关网页集合。HITS算法计算的authority值只是相对于某个检索主题的权重，因此HITS算法也常被称为Query-dependent算法；</p>
+<ul>
+<li><p>PageRank</p>
+<p>PageRank算法是独立于检索主题，因此也常被称为Query-independent算法。PageRank算法的优点在于它对互联网上的网页给出了一个全局的重要性排序，并且算法的计算过程是可以离线完成的。</p>
+<p><strong>PageRank算法</strong></p>
+<blockquote>
+<ul>
+<li>输入：一个有n个节点的网络（有向图），设所有节点的PageRank初始值为1/ n。 </li>
+<li>选择操作的步骤数<em>k</em></li>
+<li>对PageRank做<em>k</em>次更新操作，每次使用以下规则：<ul>
+<li>每个节点将自己当前的PageRank值通过出向链接均分传递给所指向的节点,若没有出向链接，则认为传递给自己</li>
+<li>每个节点以从入向链接获得的（包括可能自传的）所有值之和更新它的PageRank</li>
 </ul>
 </li>
-<li><p>介数计算的一种算法</p>
-<p><img src="/2020/12/05/Social-and-Information-Networks/image-20201204161314555.png" alt="image-20201204161314555"></p>
-</li>
-<li><p>符号网络</p>
-<p><strong>Signed networks</strong>: A complete graph is <em>balanced</em> if every connected triple of nodes has: All 3 edges labeled + <strong>or</strong> Exactly 1 edge labeled +</p>
+</ul>
+</blockquote>
+<p>PageRank算法不象HITS算法那样需要归一化问题，但有新问题，如果有向图中存在节点序列的唯一出度形成一个环路，则所有的权重全部被吸收到这个环路中。</p>
 </li>
 </ul>
+<p>  <strong>PageRank的同比缩减与统一补偿规则</strong> </p>
+<p>  同比缩减：在每次运行基本PageRank更新规则后，将每一节点的PageRank值都乘以一个比例因子s，0&lt;s&lt;1，经验值在0.8-0.9之间。</p>
+<p>  统一补偿：在每一节点的PageRank值上统一加上(1-s)/n。</p>
+<p>  <strong>Random Surfer</strong>随机游走：PageRank的另一种等价理解</p>
+<p>  考虑一篇网页X，问：经过<em>k</em>步随机游走到达X的概率是多少？</p>
+<blockquote>
+<p>可以证明：到达X的概率等于运行PageRank基本算法<em>k</em>步得到的值。</p>
+</blockquote>
+<p>  <strong>PageRank Application</strong></p>
+<ul>
+<li><p>Online Dating</p>
+</li>
+<li><p>Graph Search</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>Spectral Analysis</strong></p>
+<p> Using $M$, $h$, and $a$, can you express the hub and authority</p>
+<p>Hub update rule:<br>$$<br>h_i \leftarrow M_{i1}a_1 + M_{i2}a_2+…+M_{in}a_n = Ma<br>$$<br>Authority update rule:<br>$$<br>ai \leftarrow M_{1i}h_1 + M_{2i}h_2 + … + M_{ni}h_n = M^Th<br>$$<br>Unwinding <em>k</em> steps of Updates, Let $a^{<j>}$ be the j-th authority vector, and similarly for $h^{<j>}$</j></j></p>
+<p>则 $a^{&lt;1&gt;} = M^Th^{&lt;0&gt;} ,\  h^{&lt;1&gt;} = Ma^{&lt;1&gt;} = MM^Th^{&lt;0&gt;}$</p>
+<p>generally: $h^{<k>} = (MM^T)^kh^{&lt;0&gt;}$</k></p>
+<p>similarly: $a^{<k>} = (M^TM)^{k-1}M^Th^{&lt;0&gt;}$</k></p>
 </li>
 </ul>
 
@@ -406,8 +379,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/05/Provenance-for-large-scale-Datalog/" rel="prev" title="Provenance for large scale Datalog">
-      <i class="fa fa-chevron-left"></i> Provenance for large scale Datalog
+    <a href="/2020/12/05/Social-and-Information-Networks-1/" rel="prev" title="Social and Information Networks 1">
+      <i class="fa fa-chevron-left"></i> Social and Information Networks 1
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -468,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Social-and-Information-Networks"><span class="nav-number">1.</span> <span class="nav-text">Social and Information Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9B%BE%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">1. 图论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BD%91%E7%BB%9C%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.2.</span> <span class="nav-text">2. 网络表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">3. 网络模型</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Social-and-Information-Networks-%E2%85%A1"><span class="nav-number">1.</span> <span class="nav-text">Social and Information Networks Ⅱ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E5%BA%A6%E5%88%86%E9%9A%94-six-degrees-of-separation"><span class="nav-number">1.1.</span> <span class="nav-text">六度分隔 six degrees of separation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%82%E5%BE%8B%E5%88%86%E5%B8%83-the-power-law-distribution"><span class="nav-number">1.2.</span> <span class="nav-text">幂律分布 the power law distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%88%86%E6%9E%90-link-analysis-algorithms"><span class="nav-number">1.3.</span> <span class="nav-text">链接分析 link analysis algorithms</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,7 +457,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
