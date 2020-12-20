@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Python面向对象程序设计进阶继承自Object类的四个特殊方法 __init__() 在创建对象时（比如p &#x3D; Shape.Point()），首先调用特殊方法__new__()来创建该对象，之后调用特殊方法__init__()对其进行初始化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python面向对象程序设计进阶">
+<meta property="og:url" content="http://example.com/2020/12/20/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="WorldOfHao">
+<meta property="og:description" content="Python面向对象程序设计进阶继承自Object类的四个特殊方法 __init__() 在创建对象时（比如p &#x3D; Shape.Point()），首先调用特殊方法__new__()来创建该对象，之后调用特殊方法__init__()对其进行初始化。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-20T10:34:06.000Z">
+<meta property="article:modified_time" content="2020-12-20T10:38:15.754Z">
+<meta property="article:author" content="Hyhao">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/12/20/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%BF%9B%E9%98%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Python面向对象程序设计进阶 | WorldOfHao</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WorldOfHao</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">努力搬砖，开心打工</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/sdifv" class="github-corner" title="go GitHub" aria-label="go GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/20/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%BF%9B%E9%98%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Hyhao">
+      <meta itemprop="description" content="不断学习，持续输出，方能有所沉淀">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WorldOfHao">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python面向对象程序设计进阶
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-20 18:34:06 / 修改时间：18:38:15" itemprop="dateCreated datePublished" datetime="2020-12-20T18:34:06+08:00">2020-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Python面向对象程序设计进阶"><a href="#Python面向对象程序设计进阶" class="headerlink" title="Python面向对象程序设计进阶"></a>Python面向对象程序设计进阶</h3><h4 id="继承自Object类的四个特殊方法"><a href="#继承自Object类的四个特殊方法" class="headerlink" title="继承自Object类的四个特殊方法"></a>继承自Object类的四个特殊方法</h4><ol>
+<li><p><code>__init__()</code></p>
+<p>在创建对象时（比如p = Shape.Point()），首先调用特殊方法<code>__new__()</code>来创建该对象，之后调用特殊方法<code>__init__()</code>对其进行初始化。<a id="more"></a></p>
+</li>
+<li><p><code>__eq__()</code></p>
+<p>默认情况下，自定义类的所有实例都支持==，这种比较总是返回False——通过对特殊方法<code>__eq__()</code>进行重新实现，可以改变这一行为。如果我们实现了<code>__eq__()</code>但没有实现<code>__ne__()</code>，Python会自动提供<code>__ne__()</code>（不等于）以及不等于操作符（!=)。但是如果我们重新实现了<code>__eq__()</code>，实例就不再是可哈希运算的。我们可以将Point对象与那些恰好也包含x属性的对象进行比较 （这归功于Python的duck typing），但可能会产生奇怪的结果。</p>
+</li>
+<li><p><code>__repr()__</code></p>
+<p>内置的repr()函数会对给定的对象调用<code>__repr__()</code>特殊方法，并返回相应结果。结果字符串有两种类型，一种可以使用内置的eval()函数进行评估，并生成一个与repr()调用对象等价的对象，如果不能这样做就返回另一种字符串。</p>
+<p><strong>特殊应用</strong>： 使用eval()函数将字符串转化为具体的实例对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p = Shape.Point(<span class="number">3</span>, <span class="number">9</span>)</span><br><span class="line"><span class="built_in">repr</span>(p)　<span class="comment"># returns: &#x27;Point(3, 9)&#x27;</span></span><br><span class="line">q = <span class="built_in">eval</span>(p.__module__ + <span class="string">&quot;.&quot;</span> + <span class="built_in">repr</span>(p))</span><br><span class="line"><span class="built_in">repr</span>(q)</span><br></pre></td></tr></table></figure>
+
+<p>如果使用import Shape，那么在使用eval()进行评估时，我们必须给出模块名。（如果使用其他的导入语句，比如from Shape import Point，就不需要这样做。）Python为每个对象提供了一些私有属性，<code>__module__</code>就是其中的一个，<code>__module__</code>是用于存放对象的模块名（这里是“Shape”）的一个字符串。</p>
+</li>
+</ol>
+<ol start="4">
+<li><p><code>__str__()</code></p>
+<p>内置的str()函数与repr()函数的工作机制类似，不同之处在于其调用的是对象的<strong>str</strong>()特殊方法，产生的结果也主要是为了便于理解，而不是为了传递给eval()函数。</p>
+</li>
+</ol>
+<h4 id="使用特性进行属性存取控制"><a href="#使用特性进行属性存取控制" class="headerlink" title="使用特性进行属性存取控制"></a>使用特性进行属性存取控制</h4><p>修饰器是一个函数，该函数以一个函数或方法为参数，并返回参数的“修饰后”版本，也就是对该函数或方法进行修改后的版本。property()修饰器函数是一个内置函数，至多可以接受4个参数：一个获取者函数，一个设置者函数，一个删除者函数以及一个docstring。使用@property的效果与仅使用一个参数（获取者函数）调用property()的效果是相同的。</p>
+<p>property()修饰器函数是一个内置函数，至多可以接受4个参数：一个获取者函数，一个设置者函数，一个删除者函数以及一个docstring。使用@property的效果与仅使用一个参数（获取者函数）调用property()的效果是相同的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@property</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">radius</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;The circle&#x27;s radius</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">　　　　&gt;&gt;&gt; circle = Circle(-2)</span></span><br><span class="line"><span class="string">　　　　Traceback (most recent call last):</span></span><br><span class="line"><span class="string">　　　　...</span></span><br><span class="line"><span class="string">　　　　AssertionError: radius must be nonzero and non-negative</span></span><br><span class="line"><span class="string">　　　　&gt;&gt;&gt; circle = Circle(4)</span></span><br><span class="line"><span class="string">　　　　&gt;&gt;&gt; circle.radius = -1</span></span><br><span class="line"><span class="string">　　　　Traceback (most recent call last):</span></span><br><span class="line"><span class="string">　　　　...</span></span><br><span class="line"><span class="string">　　　　AssertionError: radius must be nonzero and non-negative</span></span><br><span class="line"><span class="string">　　　　&gt;&gt;&gt; circle.radius = 6</span></span><br><span class="line"><span class="string">　　　　&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> self.__radius</span><br><span class="line"></span><br><span class="line"><span class="meta">@radius.setter</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">radius</span>(<span class="params">self, radius</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> radius &gt; <span class="number">0</span>, <span class="string">&quot;radius must be nonzero and non-negative&quot;</span></span><br><span class="line">    self.__radius = radius  <span class="comment"># accessing private properties</span></span><br></pre></td></tr></table></figure>
+
+<p>我们使用assert语句来确保radius的取值为非0以及非负值，并将该值存储于私有属性self.__radius中。</p>
+<p>需要注意的是，获取者与设置者（如果需要，还有一个删除者）有同样的名称——用于对其进行区分的是修饰器，修饰器会适当地对其进行重命名，从而避免发生名冲突。每个创建的特性都包含getter、setter、deleter等属性，因此，在使用@property创建了radius特性之后，radius.getter、radius.setter以及radius.deleter等属性就都是可用的。radius.getter被设置为@property修饰器的获取者方法，其他两个属性由Python设置，以便其不进行任何操作（因此这两个属性不能写或删除），除非用作修饰器，这种情况下，他们实际上使用自己用于修饰的方法来替代了自身。</p>
+<h4 id="控制属性存取"><a href="#控制属性存取" class="headerlink" title="控制属性存取"></a>控制属性存取</h4><p>在创建一个类而没有使用<code>__slots__</code>时，Python会在幕后为每个实例创建一个名为<code>__dict__</code>的私有字典，该字典存放每个实例的数据属性，这也是为什么我们可以从对象中移除属性或向其中添加属性。</p>
+<p>如果对于某个对象，我们只需要访问其原始属性，而不需要添加或移除属性，那么可以创建不包含<code>__dict__</code>的类。这可以通过定义一个名为<code>__slots__</code>的类属性实现，其值是一个属性名元组。这样的类的每个对象都包含指定名称的属性，而没有<code>__dict__</code>，也不能向其中添加或移除属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>:</span></span><br><span class="line">　　__slots__ = (<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>)</span><br><span class="line">　　<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x=<span class="number">0</span>, y=<span class="number">0</span></span>):</span></span><br><span class="line">　　　　self.x = x</span><br><span class="line">　　　　self.y = y</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>__dict__</code>来存取属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Const</span>:</span></span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="keyword">def</span> <span class="title">__setattr__</span>(<span class="params">self, name, value</span>):</span></span><br><span class="line">　　　　<span class="keyword">if</span> name <span class="keyword">in</span> self.__dict__:</span><br><span class="line">　　　　　　<span class="keyword">raise</span> ValueError(<span class="string">&quot;cannot change a const attribute&quot;</span>)</span><br><span class="line">　　　　self.__dict__[name] = value</span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="keyword">def</span> <span class="title">__delattr__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">　　　　<span class="keyword">if</span> name <span class="keyword">in</span> self.__dict__:</span><br><span class="line">　　　　　　<span class="keyword">raise</span> ValueError(<span class="string">&quot;cannot delete a const attribute&quot;</span>)</span><br><span class="line">　　　　<span class="keyword">raise</span> AttributeError(<span class="string">&quot;&#x27;&#123;0&#125;&#x27; object has no attribute &#x27;&#123;1&#125;&#x27;&quot;</span></span><br><span class="line">　　　　　　　　　　　　　 .<span class="built_in">format</span>(self.__class__.__name__, name))</span><br></pre></td></tr></table></figure>
+
+<p>使用该类，可以创建常数对象，比如，const = Const()，并可以在其上设置任意属性，比如const.limit = 591。设置了某个属性的值后，虽然可以像通常一样读取，但是如果尝试改变或删除该值，就会导致ValueError异常。我们没有重新实现<code>__getattr__()</code>，因为基类的<code>object.__getattr__()</code>方法可以完成这一任务——返回给定属性的值，如果没有指定的属性，就产生AttributeError异常。在<code>__delattr__()</code>方法中，对不存在的属性，我们模仿<code>__getattr__()</code>方法的错误消息，为此，我们必须获取类名以及不存在的属性的名称。该类可以工作，是因为我们正在使用对象的<code>__dict__</code>——而这也是基类的<code>__getattr__()</code>、<code>__setattr__()</code>与<code>__delattr__()</code>等方法所使用的。下表列出了用于属性存取的所有特殊方法：</p>
+<table>
+<thead>
+<tr>
+<th align="left">特殊方法</th>
+<th align="left">使用</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">__ delattr __ (self, name)</td>
+<td align="left">del x.n</td>
+<td align="left">删除对象x的属性</td>
+</tr>
+<tr>
+<td align="left">__ dir __ (self)</td>
+<td align="left">dir(x)</td>
+<td align="left">返回x的属性名列表</td>
+</tr>
+<tr>
+<td align="left">__ getattr __ (self, name)</td>
+<td align="left">v = x.n</td>
+<td align="left">返回对象x的n属性值（如果没有直接找到）</td>
+</tr>
+<tr>
+<td align="left">__ getattribute __ (self, name)</td>
+<td align="left">v = x.n</td>
+<td align="left">返回对象x的n属性</td>
+</tr>
+<tr>
+<td align="left">__ setattr __ (self, name, value)</td>
+<td align="left">x.n = v</td>
+<td align="left">将对象x的n属性值设置为v</td>
+</tr>
+</tbody></table>
+<p>关于属性存取的特殊方法，上面展示了使用只读特性对其进行存取的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@property</span><br><span class="line">def width(self):</span><br><span class="line">　　return self.__width</span><br></pre></td></tr></table></figure>
+
+<p>这种方式易于编码，但如果有大量的只读特性，就会变得非常乏味。例如给定一个Image类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Image</span>:</span></span><br><span class="line">　　<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, width, height, filename=<span class="string">&quot;&quot;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">　　　　　　　　　background=<span class="string">&quot;#FFFFFF&quot;</span></span>):</span></span><br><span class="line">　　　　self.filename = filename</span><br><span class="line">　　　　self.__background = background</span><br><span class="line">　　　　self.__data = &#123;&#125;</span><br><span class="line">　　　　self.__width = width</span><br><span class="line">       self.__height = height</span><br><span class="line">　　　　self.__colors = &#123;self.__background&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除文件名外，所有数据属性都是私有属性，下面给出一种不同的解决方案来提供对这些私有属性的统一访问方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">　　<span class="keyword">if</span> name == <span class="string">&quot;colors&quot;</span>:</span><br><span class="line">　　　　<span class="keyword">return</span> <span class="built_in">set</span>(self.__colors)</span><br><span class="line">　　classname = self.__class__.__name__</span><br><span class="line">　　<span class="keyword">if</span> name <span class="keyword">in</span> <span class="built_in">frozenset</span>(&#123;<span class="string">&quot;background&quot;</span>, <span class="string">&quot;width&quot;</span>, <span class="string">&quot;height&quot;</span>&#125;):</span><br><span class="line">　　　　<span class="keyword">return</span> self.__dict__[<span class="string">&quot;_&#123;classname&#125;__&#123;name&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">　　　　　　　　**<span class="built_in">locals</span>())]</span><br><span class="line">　　<span class="keyword">raise</span> AttributeError(<span class="string">&quot;&#x27;&#123;classname&#125;&#x27; object has no &quot;</span></span><br><span class="line">　　　　　　<span class="string">&quot;attribute &#x27;&#123;name&#125;&#x27;&quot;</span>.<span class="built_in">format</span>(**<span class="built_in">locals</span>()))</span><br></pre></td></tr></table></figure>
+
+<p>如果我们尝试存取某个对象的属性，但没有发现该属性，Python就将调用<code>__getattr__()</code>方法（假定实现了该方法，并且没有重新实现<code>__getattribute__()</code>），并以该属性名作为一个参数。如果没有对给定的属性进行处理，<code>__getattr__()</code>必须产生AttributeError异常。</p>
+<p>比如，对语句image.colors，Python将寻找colors属性，失败后将调用<code>Image.__ getattr__(image, &quot;colors&quot;)</code>，这里，<code>__getattr__()</code>方法处理“colors”属性名，并返回图像当前使用的颜色集的副本。</p>
+<p>其他属性是固定的，因此可以安全地返回给调用者。对每个这种属性，我们可以使用一个单独的elif语句，类似于如下的形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> name == <span class="string">&quot;background&quot;</span>:</span><br><span class="line">　 <span class="keyword">return</span> self.__background</span><br></pre></td></tr></table></figure>
+
+<p>我们没有使用这种方法，而是使用了一种更紧凑的方法。我们知道，某对象的所有非特殊属性都存放在<code>self.__dict__</code>中，因此我们直接存取这些属性。注意，对私有属性（属性名以两个下划线开始），其名称在其中的存储形式为_className__attribute Name，因此，在从对象的私有字典中取回属性的值时，必须考虑这一点。</p>
+<p>对查询私有属性时以及提供标准的AttributeError错误文本时所需要进行的名称操纵，我们需要知道我们所在类的名称。（也可以不是Image，因为该对象也可能是Image子类的一个实例。）每个对象都有一个<code>__class__</code>特殊属性，因此，在方法内部，<code>self.__class</code>__总是可用的，并可以通过<code>__getattr__()</code>安全地存取，而不需要冒着不必要的递归调用的风险。</p>
+<p>注意有一个微妙的差别，使用<code>__getattr__()</code>与<code>self.__class</code>__会对实例的类（可以是一个子类）的属性进行存取，而直接存取属性时使用的类就是属性定义所在的类。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/12/Social-and-Information-Networks-2/" rel="prev" title="Social and Information Networks 2">
+      <i class="fa fa-chevron-left"></i> Social and Information Networks 2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%BF%9B%E9%98%B6"><span class="nav-number">1.</span> <span class="nav-text">Python面向对象程序设计进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E8%87%AAObject%E7%B1%BB%E7%9A%84%E5%9B%9B%E4%B8%AA%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">继承自Object类的四个特殊方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%89%B9%E6%80%A7%E8%BF%9B%E8%A1%8C%E5%B1%9E%E6%80%A7%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">使用特性进行属性存取控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%B1%9E%E6%80%A7%E5%AD%98%E5%8F%96"><span class="nav-number">1.3.</span> <span class="nav-text">控制属性存取</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hyhao"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Hyhao</p>
+  <div class="site-description" itemprop="description">不断学习，持续输出，方能有所沉淀</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/h.yuhao@foxmail.com" title="E-Mail → h.yuhao@foxmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6806582270" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6806582270" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hyhao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
